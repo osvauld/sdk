@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "outDir": "dist", "declaration": true, "types": ["node"], "rootDir": "src" },
+  "include": ["src/index.ts", "src/testing.ts", "src/osvauld.ts"]
+}

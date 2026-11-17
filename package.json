@@ -1,0 +1,33 @@
+{
+  "name": "@osvauld/sdk",
+  "version": "0.1.0",
+  "description": "The Osvauld app SDK: the guest library an app page gets from its host, its types and a fake host for tests.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./testing": { "types": "./dist/testing.d.ts", "default": "./dist/testing.js" },
+    "./browser/osvauld.js": "./browser/osvauld.js",
+    "./browser/loro.wasm": "./browser/loro.wasm",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "browser", "src", "README.md"],
+  "scripts": {
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && vite build && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "check:consumer": "bash scripts/consumer-check.sh"
+  },
+  "dependencies": {
+    "loro-crdt": "1.13.9"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
+  }
+}
